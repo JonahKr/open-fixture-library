@@ -4,70 +4,138 @@
   "shortName": "PARKOLOR",
   "categories": ["Color Changer"],
   "meta": {
-    "authors": ["PLANTEC"],
+    "authors": ["PLANTEC", "JonahKr"],
     "createDate": "2022-02-24",
-    "lastModifyDate": "2022-02-24"
+    "lastModifyDate": "2022-03-06"
   },
   "links": {
-    "other": [
-      "https://open-fixture-library.org/fixture-editor"
+    "productPage": [
+      "https://en.star-way.com/parkolor-120hd-3"
     ]
   },
+  "physical": {
+    "DMXconnector": "5-pin XLR IP65",
+    "dimensions": [350, 240, 400],
+    "power": 111,
+    "weight": 7.2
+  },
   "availableChannels": {
-    "DIMMER": {
+    "Dimmer": {
       "capability": {
         "type": "Intensity"
       }
     },
-    "SHUTTER": {
-      "capability": {
-        "type": "ShutterStrobe",
-        "shutterEffect": "Strobe"
-      }
+    "Shutter": {
+      "capabilities": [
+        {
+          "dmxRange": [0, 5],
+          "type": "ShutterStrobe",
+          "shutterEffect": "Open",
+          "comment": "Has to be set in Firmware!"
+        },
+        {
+          "dmxRange": [6, 10],
+          "type": "ShutterStrobe",
+          "shutterEffect": "Closed",
+          "comment": "Has to be set in Firmware!"
+        },
+        {
+          "dmxRange": [11, 90],
+          "type": "ShutterStrobe",
+          "shutterEffect": "Strobe",
+          "speedStart": "slow",
+          "speedEnd": "fast"
+        },
+        {
+          "dmxRange": [91, 170],
+          "type": "ShutterStrobe",
+          "shutterEffect": "Strobe",
+          "comment": "Random slow to fast"
+        },
+        {
+          "dmxRange": [171, 255],
+          "type": "ShutterStrobe",
+          "shutterEffect": "Strobe",
+          "comment": "Synchronized random strobe"
+        }
+      ]
     },
-    "ROUGE": {
+    "Red": {
       "capability": {
         "type": "ColorIntensity",
         "color": "Red"
       }
     },
-    "VERT": {
+    "Green": {
       "capability": {
         "type": "ColorIntensity",
         "color": "Green"
       }
     },
-    "BLEU": {
+    "Blue": {
       "capability": {
         "type": "ColorIntensity",
         "color": "Blue"
       }
     },
-    "BLANC": {
+    "White": {
       "capability": {
         "type": "ColorIntensity",
         "color": "White"
       }
     },
-    "ZOOM": {
+    "Zoom": {
       "capability": {
         "type": "Zoom",
         "angleStart": "narrow",
         "angleEnd": "wide"
       }
+    },
+    "ColorWheel": {
+      "capabilities":[
+        {
+          "dmxRange": [0, 0],
+          "type": ""
+        },
+        {
+          "dmxRange": [252, 253],
+          "type" : "WheelRotation",
+          "speed": "slow CW"
+        },
+        {
+          "dmxRange": [254, 255],
+          "type" : "WheelRotation",
+          "speed": "slow CCW"
+        }
+      ]
     }
   },
   "modes": [
     {
       "name": "7_CHANNEL",
+      "shortName": "7ch",
       "channels": [
-        "DIMMER",
-        "SHUTTER",
-        "ROUGE",
-        "VERT",
-        "BLEU",
-        "BLANC",
-        "ZOOM"
+        "Dimmer",
+        "Shutter",
+        "Red",
+        "Green",
+        "Blue",
+        "White",
+        "Zoom"
+      ]
+    },
+    {
+      "name": "10_CHANNEL",
+      "shortName": "10ch",
+      "channels": [
+        "Dimmer",
+        "Shutter",
+        "Zoom",
+        "Red",
+        "Green",
+        "Blue",
+        "White",
+        "ColorWheel"
       ]
     }
   ]
